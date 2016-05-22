@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Escuela Dr. Indalecio Gómez</title>
+		<link rel="stylesheet" type="text/css" href="css/materialize.css">
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+		<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Roboto:400italic' rel='stylesheet' type='text/css'>
+		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<meta charset="utf-8">
+	</head>
+	<body class="roboto teal lighten-3">
+
+<!-- NAV -->
+
+	<ul id="dropdown1" class="dropdown-content verde-escuela white-text">
+		<li>
+			<a href="noticias.html" class="white-text center-align">Noticias</a>
+		</li>
+		<li>
+			<a href="alumnos.html" class="white-text center-align">Informacion para alumnos</a>
+		</li>
+		<li>
+			<a href="gabinete.html" class="white-text center-align">Gabinete Psicopedagogico</a>
+		</li>
+	</ul>
+	<ul id="dropdown2" class="dropdown-content verde-escuela white-text">
+		<li>
+			<a href="contacto.html" class="white-text center-align">Informacion de Contacto</a>
+		</li>
+		<div class="divider"></div>
+		<li>
+			<a href="admin.html" class="red-text center-align">Administracion</a>
+		</li>
+	</ul>
+
+		<div class="navbar z-depth-4 m-top">
+			<nav class="verde-escuela">
+				<div class="nav-wrapper">
+					<a href"index.html" class="pacifico brand-logo white-text m-left">
+						<i>Escuela Dr Indalecio Gomez</i>
+					</a>
+					<a href="#" data-activates="mobile-demo" class="button-collapse full">
+						<i class="material-icons">menu</i>
+					</a>
+					<ul id="nav-mobile" class="right hide-on-med-and-down m-right">
+						<li>
+							<a href="index.html" class="white-text">Inicio</a>
+						</li>
+						<li>
+							<a href="institucion.html" class="white-text"><b>La institucion</b></a>
+						</li>
+						<li>
+							<a class="dropdown-button" href="#!" data-activates="dropdown1">Informacion<i class="material-icons right">arrow_drop_down</i></a>
+						</li>
+						<li>
+							<a class="dropdown-button" href="#!" data-activates="dropdown2">Contacto<i class="material-icons right">arrow_drop_down</i></a>
+						</li>
+						
+					</ul>
+					<ul class="side-nav hide-on-large-only verde-escuela" id="mobile-demo">
+						<li><a href="index.html" class="white-text center-align">Inicio</a></li>
+						<li><a href="institucion.html" class="white-text center-align">La Institucion</a></li>
+						<li><a href="noticias.html" class="white-text center-align">Noticias</a></li>
+						<li><a href="alumnos.html" class="white-text center-align">Informacion para alumnos</a></li>
+						<li><a href="gabinete.html" class="white-text center-align">Gabinete Psicopedagogico</a></li>
+						<li><a href="contacto.html" class="white-text center-align">Contacto</a></li>
+					</ul>
+				</div>
+			</nav>
+		</div>  
+
+<!-- END NAV -->
+
+<!-- CONTENT -->
+
+	<div class="container center">
+	<h1 class="pacifico">Escuela nº 4563 Dr. Indalecio Gómez</h1>
+	<img src="img/escuela.png" width="80%" height="80%">
+	<p>HISTORIA PENDIENTE</p>
+	<h1 class="pacifico">¿Quien fue Indalecio Gomez?</h1>
+	<img src="img/indalecio.jpg">
+	<p>Indalecio Gómez (n. Molinos, provincia de Salta, 14 de septiembre de 1850 – † Buenos Aires, 17 de agosto de 1920), jurista y político argentino, que fue Ministro del Interior del presidente Roque Sáenz Peña, coautor y defensor de la Ley Sáenz Peña, que logró imponer en su país el voto universal, secreto y obligatorio, haciendo realidad la democracia política.</p>
+	<p class="right-align"><i>--Wikipedia</i></p>		
+	</div>
+
+<!-- SCRIPTS -->
+
+<!-- Import jQuery before materialize.js -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.js"></script>
+
+	<script>
+		$(document).ready(function(){
+			$(".slider").slider();
+			$(".button-collapse").sideNav({
+				menuWidth: 400,
+				closeOnClick: true,
+			});	
+		});
+	</script>
+
+<!-- END SCRIPTS -->
+
+</body>
+</html>

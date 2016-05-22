@@ -1,0 +1,31 @@
+.pacifico{
+	font-family: 'Pacifico', cursive;
+}
+
+.roboto{
+	font-family: 'Roboto', sans-serif;
+}
+
+img{
+	max-width: 100%;
+}
+
+.verde-escuela{
+	background-color: #0d3620;
+}
+
+.m-top{
+ 	margin-top: 10px;
+}
+
+.m-bottom{
+	margin-bottom: 10px; 
+}
+
+.m-left{
+	margin-left: 10px;
+}
+
+.m-right{
+	margin-right: 10px;
+}
