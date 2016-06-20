@@ -1,0 +1,71 @@
+.pacifico{
+	font-family: 'Pacifico', cursive;
+}
+
+.roboto{
+	font-family: 'Roboto', sans-serif;
+}
+
+img{
+	max-width: 100%;
+}
+
+.verde-escuela{
+	background-color: #0d3620;
+}
+
+.m-top{
+ 	margin-top: 10px;
+}
+
+.m-bottom{
+	margin-bottom: 10px; 
+}
+
+.m-left{
+	margin-left: 10px;
+}
+
+.m-right{
+	margin-right: 10px;
+}
+.m-left-big{
+	margin-left: 40px;
+}
+
+.m-right-big{
+	margin-right: 40px;
+}
+.big{
+	font-size: 2em;
+}
+
+.retraso1{
+	animation-delay: 1s;
+	-webkit-animation-delay: 1s;
+	-moz-animation-delay: 1s;
+}
+.retraso2{
+	animation-delay: 2s;
+	-webkit-animation-delay: 2s;
+	-moz-animation-delay: 2s;
+}
+.retraso3{
+	animation-delay: 3s;
+	-webkit-animation-delay: 3s;
+	-moz-animation-delay: 3s;
+}
+.retraso4{
+	animation-delay: 4s;
+	-webkit-animation-delay: 4s;
+	-moz-animation-delay: 4s;
+}
+.studentimg{
+	background-image: url(../img/student.jpg);
+}
+.newsimg{
+	background-image: url(../img/news.jpg);
+}
+.contactimg{
+	background-image: url(../img/contact.png);
+}
