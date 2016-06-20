@@ -7,9 +7,13 @@
 		<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Roboto:400italic' rel='stylesheet' type='text/css'>
 		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/animate.css">
 		<meta charset="utf-8">
 	</head>
 	<body class="roboto teal lighten-3">
+	
+	<audio src="audio/background.mp3" autoplay>
+	</audio>
 
 <!-- NAV -->
 
@@ -26,7 +30,7 @@
 	</ul>
 	<ul id="dropdown2" class="dropdown-content verde-escuela white-text">
 		<li>
-			<a href="contacto.html" class="white-text center-align"><b>Informacion de Contacto</b></a>
+			<a href="contacto.html" class="white-text center-align">Informacion de Contacto</a>
 		</li>
 		<div class="divider"></div>
 		<li>
@@ -34,7 +38,7 @@
 		</li>
 	</ul>
 
-		<div class="navbar z-depth-4 m-top">
+		<div class="navbar z-depth-4 m-top animated fadeInLeft retraso1">
 			<nav class="verde-escuela">
 				<div class="nav-wrapper">
 					<a href"index.html" class="pacifico brand-logo white-text m-left">
@@ -45,7 +49,7 @@
 					</a>
 					<ul id="nav-mobile" class="right hide-on-med-and-down m-right">
 						<li>
-							<a href="index.html" class="white-text">Inicio</a>
+							<a href="index.html" class="white-text"><b>Inicio</b></a>
 						</li>
 						<li>
 							<a href="institucion.html" class="white-text">La institucion</a>
@@ -54,7 +58,7 @@
 							<a class="dropdown-button" href="#!" data-activates="dropdown1">Informacion<i class="material-icons right">arrow_drop_down</i></a>
 						</li>
 						<li>
-							<a class="dropdown-button" href="#!" data-activates="dropdown2"><b>Contacto</b><i class="material-icons right">arrow_drop_down</i></a>
+							<a class="dropdown-button" href="#!" data-activates="dropdown2">Contacto<i class="material-icons right">arrow_drop_down</i></a>
 						</li>
 						
 					</ul>
@@ -72,32 +76,20 @@
 
 <!-- END NAV -->
 
-<!-- CONTENT -->
-
-	<div class="container center-align">
-		<h1 class="pacifico">Contacto</h1>
-		<iframe class="hide-on-small-only" width="531" height="437" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://www.openstreetmap.org/export/embed.html?bbox=-65.40362298488617%2C-24.789566541842703%2C-65.40043115615845%2C-24.78786686267029&amp;layer=mapnik&amp;marker=-24.78871670516721%2C-65.40202707052231" style="border: 1px solid black"></iframe>
-
-		<iframe class="hide-on-med-and-up" width="250" height="250" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://www.openstreetmap.org/export/embed.html?bbox=-65.40362298488617%2C-24.789566541842703%2C-65.40043115615845%2C-24.78786686267029&amp;layer=mapnik&amp;marker=-24.78871670516721%2C-65.40202707052231" style="border: 1px solid black"></iframe>	
-
-		<p class="center-align"><b>Direccion :</b> Av. del Bicentenario de la Batalla de Salta 160, 4400 Salta</p>
-		<p class="center-align"><b>Telefono :</b> (0387)421-6443</p>
-		<p class="center-align"><b>E-mail:</b> indaleciogomez@gmail.com</p>
-		<div class="row">
-			<div class="col l4 m4 s12">
-				<h3>Facebook</h3>
-			</div>
-			<div class="col l4 m4 s12">
-				<h3>Twitter</h3>
-			</div>
-			<div class="col l4 m4 s12">
-				<h3>Google</h3>
-			</div>
+<div class="parallax-container">
+	<div class="parallax"><img src="img/escuela.jpg"></div>
+</div>
+	<div class="section white">
+		<div class="row container center-align">
+			<h1 class="pacifico">Escuela Dr. Indalecio Gomez</h1>
+			<h3>Eduacion, Inclusion y Compromiso</h3>
+			<p class="grey-text text-darken-3 lighten-3 pacifico big">
+				<a href="alumnos.html">Alumnos</a>|
+				<a href="noticias.html">Noticias</a>|
+				<a href="contacto.html">Contacto</a>
+			</p>
 		</div>
-	
 	</div>
-
-<!-- END CONTENT -->
 
 <!-- FOOTER -->
 		<div class="verde-escuela">
@@ -118,11 +110,12 @@
 				$(".button-collapse").sideNav({
 					menuWidth: 400,
 					closeOnClick: true,
-				});	
+				});
+				$('.parallax').parallax();	
 			});
 		</script>
 
 <!-- END SCRIPTS -->
 
-</body>
+	</body>
 </html>
