@@ -69,3 +69,13 @@ img{
 .contactimg{
 	background-image: url(../img/contact.png);
 }
+.parallax-container {
+	height: 400px;
+}
+.circular {
+	width: 300px;
+	height: 300px;
+	border-radius: 150px;
+	-webkit-border-radius: 150px;
+	-moz-border-radius: 150px;
+}
