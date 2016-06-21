@@ -1,95 +1,41 @@
-doctype html
-html(lang="es")
-	head
-		title Escuela Dr. Indalecio Gomez
-		meta(charset="utf-8")
-		link(rel="stylesheet" type="text/css" href="css/materialize.css")
-		link(rel="stylesheet" type="text/css" href="css/main.css")
-		link(href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css')
-		link(href='https://fonts.googleapis.com/css?family=Roboto:400italic' rel='stylesheet' type='text/css')
-		link(href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
-		link(rel="icon" type="image/png" href="img/logo.ico")
-		meta(name="viewport" content="width=device-width, initial-scale=1.0")
-	body(class="roboto white")
-		//audio(src="audio/background.mp3" autoplay)
-		
-		//	NAV
+extends ./layout.jade
+block body
 
-		nav(class="verde-escuela z-depth-4 m-top retraso1")
-			img(src="img/logo.ico" class="left hide-on-med-and-down" height="100%")
-			a(href="/" class="pacifico brand-logo white-text m-left waves-effect waves-light") Dr Indalecio Gomez
-			ul(class="hide-on-med-and-down right m-right")
-				li
-					a(href="institucion" class="waves-effect waves-light") La Institucion
-				li
-					a(href="noticias" class="waves-effect waves-light") Noticias
-				li
-					a(href="alumnos" class="waves-effect waves-light") Alumnos
-				li
-					a(href="contacto" class="waves-effect waves-light") Contacto
-			ul(id="slide-out" class="side-nav verde-escuela")
-				h4(class="pacifico center-align") Escuela Dr. Indalecio Gomez
-				li
-					img(src="img/escuela.png")
-				li
-					i(class="material-icons left") home
-					a(href="/" class="big waves-effect waves-light white-text center-align") Inicio 
-				li
-					i(class="material-icons left") store
-					a(href="institucion" class="big waves-effect waves-light white-text center-align") La Institucion
-				li
-					i(class="material-icons left") fiber_new
-					a(href="noticias" class="big waves-effect waves-light white-text center-align") Noticias
-				li
-					i(class="material-icons left") fingerprint
-					a(href="alumnos" class="big waves-effect waves-light white-text center-align") Informacion para alumnos
-				li
-					i(class="material-icons left") import_contacts
-					a(href="contacto" class="big waves-effect waves-light white-text center-align") Contacto
-				div(class="divider")
-				div(class="verde-escuela")
-					p(class="center-align white-text" style="margin-bottom: 0;") © 2016 Copyright Escuela Dr. Indalecio Gómez
-					p(class="center-align white-text" style="margin-bottom: 0;") Todos los derechos reservados
-			a(href="#" data-activates="slide-out" class="button-collapse")
-				i(class="material-icons") menu
+	//CONTENT
 
-		// END NAV
+	div(class="parallax-container m-top-little")
+		div(class="parallax")
+			img(src="img/escuela2.png")
 
-		//CONTENT
+	div(class="section")
+		div(class="row container center-align")
+			h1(class="pacifico") Escuela Dr. Indalecio Gomez
+			h3 Educacion, Inclusion y Compromiso
+			p(class="pacifico")
+				a(href="alumnos" class="btn tooltipped white-text green z-depth-5" data-position="bottom" data-delay="50" data-tooltip="Informacion util para el Alumno") Alumnos
+				a(href="noticias" class="btn tooltipped white-text green m-right m-left z-depth-5" data-position="bottom" data-delay="50" data-tooltip="Noticias de la Institucion") Noticias
+				a(href="contacto" class="btn tooltipped white-text green z-depth-5" data-position="bottom" data-delay="50" data-tooltip="Informacion de contacto") Contacto
 
-		div(class="parallax-container m-top-little")
-			div(class="parallax")
-				img(src="img/escuela2.png")
+	div(class="parallax-container")
+		div(class="parallax")
+			img(src="img/school_draw.jpg")
 
-		div(class="section")
-			div(class="row container center-align")
-				h1(class="pacifico") Escuela Dr. Indalecio Gomez
-				h3 Educacion, Inclusion y Compromiso
-				p(class="pacifico")
-					a(href="alumnos" class="btn tooltipped white-text green z-depth-5" data-position="bottom" data-delay="50" data-tooltip="Informacion util para el Alumno") Alumnos
-					a(href="noticias" class="btn tooltipped white-text green m-right m-left z-depth-5" data-position="bottom" data-delay="50" data-tooltip="Noticias de la Institucion") Noticias
-					a(href="contacto" class="btn tooltipped white-text green z-depth-5" data-position="bottom" data-delay="50" data-tooltip="Informacion de contacto") Contacto
+	//iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1811.099163866572!2d-65.40270711646951!3d-24.78866147615463!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x941bc3982e96ae49%3A0xa42e88311f53c29e!2sEscuela+Dr.+Indalecio+G%C3%B3mez+N%C2%B0+784!5e0!3m2!1ses-419!2sar!4v1466490090785" width="100%" height="300" frameborder="0" style="border:0")
 
-		div(class="parallax-container")
-			div(class="parallax")
-				img(src="img/school_draw.jpg")
-		
-		//iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1811.099163866572!2d-65.40270711646951!3d-24.78866147615463!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x941bc3982e96ae49%3A0xa42e88311f53c29e!2sEscuela+Dr.+Indalecio+G%C3%B3mez+N%C2%B0+784!5e0!3m2!1ses-419!2sar!4v1466490090785" width="100%" height="300" frameborder="0" style="border:0")
+	//	END CONTENT
 
-		//	END CONTENT
+	//	FOOTER
 
-		//	FOOTER
+	div(class="verde-escuela")
+		p(class="center-align white-text" style="margin-bottom: 0;") © 2016 Copyright Escuela Dr. Indalecio Gómez - Todos los derechos reservados
 
-		div(class="verde-escuela")
-			p(class="center-align white-text" style="margin-bottom: 0;") © 2016 Copyright Escuela Dr. Indalecio Gómez - Todos los derechos reservados
+	//END FOOTER
 
-		//END FOOTER
+	// SCRIPTS
 
-		// SCRIPTS
+	script(type="text/javascript" src="js/jquery-2.2.4.js")
+	script(type="text/javascript" src="js/main.js")
+	script(type="text/javascript" src="js/materialize.js")
 
-		script(type="text/javascript" src="js/jquery-2.2.4.js")
-		script(type="text/javascript" src="js/main.js")
-		script(type="text/javascript" src="js/materialize.js")
-		
 
-		//END SCRIPT
+	//END SCRIPT

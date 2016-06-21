@@ -17,7 +17,7 @@ var noticeSchema = {
 	title:String,
 	description:String,
 	imageUrl:String,
-	visits_count:integer, 
+	visits_count:Number, 
 
 };
 
@@ -38,7 +38,7 @@ var noticeStudent = {
 	header:String,
 	description:String,
 	image:String,
-	visits:integer,
+	visits:Number,
 
 };
 
@@ -62,17 +62,70 @@ app.use(express.static("public"));
 
 //========================	ROUTES =========================================
 
-//	BODY OF THE APLICATION
+//**************************************************************************
+//						ALL GET METHOD OF THE SERVER
+//**************************************************************************
+
+//	root page
 
 app.get("/",function(req,res){
 	res.render("index");
 });
 
-//	CREATE NEW NOTICE
+//	contact page
+
+app.get("/contacto",function(req,res){
+	res.render("contact");
+});
+
+//	notice main page
+
+app.get("/noticias",function(req,res){
+	res.render("notice/index");
+});
+
+//	notice (new notice) page 
 
 app.get("/notice/new",function(req,res){
 	res.render("notice/new");
 });
+
+//	institution main page
+
+app.get("/institucion",function(req,res){
+	res.render("institution/index");
+});
+
+//	institution (new teacher) page 
+
+app.get("/notice/new",function(req,res){
+	res.render("institution/new");
+});
+
+//	student main page
+
+app.get("/alumnos",function(req,res){
+	res.render("student/index");
+});
+
+//	student (new information) page 
+
+app.get("/notice/new",function(req,res){
+	res.render("student/new");
+});
+
+//	admin dashboard page
+
+app.get("/superadmin",function(req,res){
+	res.render("admin/index");
+});
+
+
+//**************************************************************************
+//						ALL POST METHOD OF THE SERVER
+//**************************************************************************
+
+
 
 //===========================================================================
 
