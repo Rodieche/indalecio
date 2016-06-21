@@ -86,7 +86,7 @@ app.get("/noticias",function(req,res){
 
 //	notice (new notice) page 
 
-app.get("/notice/new",function(req,res){
+app.get("/noticias/new",function(req,res){
 	res.render("notice/new");
 });
 
@@ -98,7 +98,7 @@ app.get("/institucion",function(req,res){
 
 //	institution (new teacher) page 
 
-app.get("/notice/new",function(req,res){
+app.get("/institucion/new",function(req,res){
 	res.render("institution/new");
 });
 
@@ -110,7 +110,7 @@ app.get("/alumnos",function(req,res){
 
 //	student (new information) page 
 
-app.get("/notice/new",function(req,res){
+app.get("/alumnos/new",function(req,res){
 	res.render("student/new");
 });
 

@@ -12,4 +12,5 @@ $(document).ready(function(){
 	$('.tooltipped').tooltip({
 		delay: 50,
 	});
+	 $('input#input_text, textarea#textarea1').characterCounter();
 });
