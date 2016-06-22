@@ -4,6 +4,12 @@ var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
 var bodyParse = require('body-parser');
+var multer = require('multer');
+//app.use(multer({dest: "uploads/"}));
+//var upload = multer({ dest: './uploads' });
+
+var cloudinary = require('cloudinary');
+
 var mypasswd = 1234;
 
 //	CONFIG MONGOOSE
@@ -14,6 +20,14 @@ mongoose.connect("mongodb://localhost/school_indalecio_school");
 
 app.use(bodyParse.json());
 app.use(bodyParse.urlencoded({ extended: true }));
+
+//	CLOUDINARY CONFIG
+
+cloudinary.config({
+	cloud_name: "www-escuelaindaleciogomez-com-ar",
+	api_key: "816154774651498",
+	api_secret: "308-RiCpA1bfwu4pmgHyNXiDsXM",
+});
 
 //===============	SCHEMA OF MONGO 	==================================
 
@@ -138,7 +152,7 @@ app.get("/errorpasswd",function(req,res){
 //						ALL POST METHOD OF THE SERVER
 //**************************************************************************
 
-app.post("/noticias",function(req,res){
+app.post("/noticias", multer({ dest: './uploads/'}).single('image_notice') ,function(req,res,next){
 	if(req.body.password == mypasswd){
 		var notice = {
 			title: req.body.title,
@@ -149,10 +163,16 @@ app.post("/noticias",function(req,res){
 
 		var noticia = new Notice(notice);
 
-		noticia.save(function(err){
-			console.log(noticia);
-			res.render("notice/index");
-		});
+		var imagen = req.file.path;
+
+		cloudinary.uploader.upload(imagen, 
+			function(result) { 
+				noticia.imageUrl = result.url;
+				noticia.save(function(err){
+					res.render("notice/index");
+				});
+			}
+		);
 	}else{
 		res.render("error/nopasswd");
 	};

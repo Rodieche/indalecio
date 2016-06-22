@@ -1,16 +1,25 @@
 extends ../layout.jade
 block body
 	h1(class="pacifico center-align") Nueva Noticia
-	div(class="container")
-		form(class="col s12" method="post" action="/noticias")
+	div(class="container m-buttom")
+		form(class="col s12" method="post" action="/noticias" enctype="multipart/form-data")
 			div(class="input-field col l8 s12 m8 center")
 				i(class="material-icons left") label
 				h6(class="left") Titulo de la noticia
 				input(placeholder="Introduzca el Titulo de la noticia" name="title" id="title" type="text" class="validate")
+			div(class="divider")
+			div(class="file-field input-field")
+				div(class="btn")
+					span Archivo
+					i(class="material-icons left") add_a_photo
+					input(name="image_notice" type="file")
+				div(class="file-path-wrapper")
+					input(class="file-path validate black-text" type="text")
+			div(class="divider")
 			div(class="input-field col s12 l12 m12")
 				i(class="material-icons left") description
 				h6(class="left") Cuerpo de la noticia
-				textarea(placeholder="Introduzca la informacion aqui" name="description" id="description" type="text" class="validate m-top")
+				textarea(placeholder="Introduzca la informacion aqui" name="description" id="description" type="text" class="validate m-top" style="height:150px;")
 			div(class="input-field col l8 s12 m8 center")
 				i(class="material-icons left") lock
 				h6(class="left") Contraseña
