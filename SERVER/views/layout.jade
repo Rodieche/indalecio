@@ -10,8 +10,11 @@ html(lang="es")
 		link(href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
 		link(rel="icon" type="image/png" href="/img/logo.ico")
 		meta(name="viewport" content="width=device-width, initial-scale=1.0")
+		script(type="text/javascript" src="/js/jquery-2.2.4.js")
+		script(type="text/javascript" src="/js/main.js")
+		script(type="text/javascript" src="/js/materialize.js")
 	body(class="roboto white")
-		//audio(src="audio/background.mp3" autoplay)
+		//audio(src="/audio/background.mp3" autoplay)
 		
 		//	NAV
 
@@ -20,13 +23,13 @@ html(lang="es")
 			a(href="/" class="pacifico brand-logo white-text m-left waves-effect waves-light") Dr Indalecio Gomez
 			ul(class="hide-on-med-and-down right m-right")
 				li
-					a(href="institucion" class="waves-effect waves-light") La Institucion
+					a(href="/institucion" class="waves-effect waves-light") La Institucion
 				li
-					a(href="noticias" class="waves-effect waves-light") Noticias
+					a(href="/noticias" class="waves-effect waves-light") Noticias
 				li
-					a(href="alumnos" class="waves-effect waves-light") Alumnos
+					a(href="/alumnos" class="waves-effect waves-light") Alumnos
 				li
-					a(href="contacto" class="waves-effect waves-light") Contacto
+					a(href="/contacto" class="waves-effect waves-light") Contacto
 			ul(id="slide-out" class="side-nav verde-escuela")
 				h4(class="pacifico center-align") Escuela Dr. Indalecio Gomez
 				li
@@ -36,16 +39,16 @@ html(lang="es")
 					a(href="/" class="big waves-effect waves-light white-text center-align") Inicio 
 				li
 					i(class="material-icons left") store
-					a(href="institucion" class="big waves-effect waves-light white-text center-align") La Institucion
+					a(href="/institucion" class="big waves-effect waves-light white-text center-align") La Institucion
 				li
 					i(class="material-icons left") fiber_new
-					a(href="noticias" class="big waves-effect waves-light white-text center-align") Noticias
+					a(href="/noticias" class="big waves-effect waves-light white-text center-align") Noticias
 				li
 					i(class="material-icons left") fingerprint
-					a(href="alumnos" class="big waves-effect waves-light white-text center-align") Informacion para alumnos
+					a(href="/alumnos" class="big waves-effect waves-light white-text center-align") Informacion para alumnos
 				li
 					i(class="material-icons left") import_contacts
-					a(href="contacto" class="big waves-effect waves-light white-text center-align") Contacto
+					a(href="/contacto" class="big waves-effect waves-light white-text center-align") Contacto
 				div(class="divider")
 				div(class="verde-escuela")
 					p(class="center-align white-text" style="margin-bottom: 0;") © 2016 Copyright Escuela Dr. Indalecio Gómez

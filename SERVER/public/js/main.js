@@ -12,5 +12,8 @@ $(document).ready(function(){
 	$('.tooltipped').tooltip({
 		delay: 50,
 	});
-	 $('input#input_text, textarea#textarea1').characterCounter();
+	$('input#input_text, textarea#textarea1').characterCounter();
+	Materialize.updateTextFields();
+	$('#description').val('New Text');
+	$('#description').trigger('autoresize');
 });

@@ -3,10 +3,17 @@
 var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
+var bodyParse = require('body-parser');
+var mypasswd = 1234;
 
 //	CONFIG MONGOOSE
 
 mongoose.connect("mongodb://localhost/school_indalecio_school");
+
+//	USE BODY PARSER FOR JSON
+
+app.use(bodyParse.json());
+app.use(bodyParse.urlencoded({ extended: true }));
 
 //===============	SCHEMA OF MONGO 	==================================
 
@@ -120,12 +127,36 @@ app.get("/superadmin",function(req,res){
 	res.render("admin/index");
 });
 
+//	nopasswd page
+
+app.get("/errorpasswd",function(req,res){
+	res.render("error/nopasswd");
+});
+
 
 //**************************************************************************
 //						ALL POST METHOD OF THE SERVER
 //**************************************************************************
 
+app.post("/noticias",function(req,res){
+	if(req.body.password == mypasswd){
+		var notice = {
+			title: req.body.title,
+			description:req.body.description,
+			imageUrl: "data.png",
+			visits_count:0,
+		}
 
+		var noticia = new Notice(notice);
+
+		noticia.save(function(err){
+			console.log(noticia);
+			res.render("notice/index");
+		});
+	}else{
+		res.render("error/nopasswd");
+	};
+});
 
 //===========================================================================
 
