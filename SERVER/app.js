@@ -12,6 +12,8 @@ var cloudinary = require('cloudinary');
 
 var mypasswd = 1234;
 
+var mysuperpasswd = "#4211868aB";
+
 //	CONFIG MONGOOSE
 
 mongoose.connect("mongodb://localhost/school_indalecio_school");
@@ -48,7 +50,9 @@ var teacherSchema = {
 
 	name:String,
 	information:String,
+	grade:String,
 	pictureurl:String,
+
 
 };
 
@@ -57,7 +61,7 @@ var teacherSchema = {
 var noticeStudent = {
 
 	header:String,
-	description:String,
+	descriptionstu:String,
 	image:String,
 	visits:Number,
 
@@ -102,7 +106,10 @@ app.get("/contacto",function(req,res){
 //	notice main page
 
 app.get("/noticias",function(req,res){
-	res.render("notice/index");
+	Notice.find(function(error,documento){
+		if(error){ console.log(error); }
+		res.render("notice/index",{ notice: documento });
+	});
 });
 
 //	notice (new notice) page 
@@ -152,12 +159,13 @@ app.get("/errorpasswd",function(req,res){
 //						ALL POST METHOD OF THE SERVER
 //**************************************************************************
 
+//	POST NOTICIAS/NEW
+
 app.post("/noticias", multer({ dest: './uploads/'}).single('image_notice') ,function(req,res,next){
 	if(req.body.password == mypasswd){
 		var notice = {
 			title: req.body.title,
 			description:req.body.description,
-			imageUrl: "data.png",
 			visits_count:0,
 		}
 
@@ -170,6 +178,60 @@ app.post("/noticias", multer({ dest: './uploads/'}).single('image_notice') ,func
 				noticia.imageUrl = result.url;
 				noticia.save(function(err){
 					res.render("notice/index");
+				});
+			}
+		);
+	}else{
+		res.render("error/nopasswd");
+	};
+});
+
+//	POST TEACHERS NEW
+
+app.post("/institution", multer({ dest: './uploads/'}).single('pictureurl') ,function(req,res,next){
+	if(req.body.password == mypasswd){
+		var master = {
+			name: req.body.name,
+			information:req.body.information,
+			grade:req.body.grade,
+		}
+
+		var maestra = new Teacher(master);
+
+		var imagen = req.file.path;
+
+		cloudinary.uploader.upload(imagen, 
+			function(result) { 
+				maestra.pictureurl = result.url;
+				maestra.save(function(err){
+					res.render("institution/index");
+				});
+			}
+		);
+	}else{
+		res.render("error/nopasswd");
+	};
+});
+
+//	POST STUDENT NOTICE NEW
+
+app.post("/alumnos", multer({ dest: './uploads/'}).single('image') ,function(req,res,next){
+	if(req.body.password == mypasswd){
+		var studentnew = {
+			header: req.body.header,
+			descriptionstu:req.body.descriptionstu,
+			visits:0,
+		}
+
+		var alumnonoticia = new Student(studentnew);
+
+		var imagen = req.file.path;
+
+		cloudinary.uploader.upload(imagen, 
+			function(result) { 
+				alumnonoticia.image = result.url;
+				alumnonoticia.save(function(err){
+					res.render("student/index");
 				});
 			}
 		);

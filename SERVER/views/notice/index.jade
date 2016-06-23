@@ -1,2 +1,23 @@
 extends ../layout.jade
 block body
+	h2(class="pacifico center-align") Noticias
+	div(class="row container")
+		each noticia in notice
+			div(class="col l6 m6 s12")
+				//div(class="card-panel")
+					h3(class="pacifico center-align truncate")= noticia.title
+				//div(class="divider")
+				//div(class="center-align")
+					img(src="#{ noticia.imageUrl }" width="150" heigth="150" class="circular")
+				//div(class="divider")
+				//div(class="card-panel")
+					p(class="truncate")= noticia.description
+
+				div(class="card hoverable small")
+					div(class="card-image")
+						img(src="#{ noticia.imageUrl }")
+						span(class="card-title truncate lime-text text-accent-3 z-depht-3")= noticia.title
+					div(class="card-content")
+						p(class="truncate")= noticia.description
+					div(class="card-action")
+						a(href="#!" class="right") Leer mas

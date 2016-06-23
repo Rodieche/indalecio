@@ -40,6 +40,11 @@ img{
 .m-right-big{
 	margin-right: 40px;
 }
+
+.m-right-little{
+	margin-right: 5px;
+}
+
 .big{
 	font-size: 2em;
 }
@@ -77,8 +82,8 @@ img{
 	height: 400px;
 }
 .circular {
-	width: 300px;
-	height: 300px;
+	width: 150px;
+	height: 150px;
 	border-radius: 150px;
 	-webkit-border-radius: 150px;
 	-moz-border-radius: 150px;

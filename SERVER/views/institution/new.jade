@@ -1,0 +1,33 @@
+extends ../layout.jade
+block body
+	h1(class="pacifico center-align") Nueva Maestra
+	div(class="container m-buttom")
+		form(class="col s12" method="post" action="/institution" enctype="multipart/form-data")
+			div(class="row")
+				div(class="input-field col l9 s12 m8 center")
+					i(class="material-icons left") label
+					h6(class="left") Maestra
+					input(placeholder="Introduzca el Nombre de la maestra" name="name" id="name" type="text" class="validate")
+				div(class="file-field input-field col l3 m4 s12")
+					i(class="material-icons left hide-on-small-only") add_to_photos
+					h6(class="left hide-on-small-only") Imagen de perfil
+					div(class="btn")
+						span Archivo
+						i(class="material-icons left") add_a_photo
+						input(name="pictureurl" type="file")
+			div(class="divider")
+			div(class="input-field col s12 l12 m12")
+				i(class="material-icons left") description
+				h6(class="left") Descripcion de la Maestra
+				textarea(placeholder="Introduzca la descripcion de la maestra aqui" name="information" id="information" type="text" class="validate m-top" style="height:150px;")
+			div(class="input-field col l12 s12 m12 center")
+					i(class="material-icons left") filter_7
+					h6(class="left") Grado
+					input(placeholder="¿En que grado esta la maestra?" name="grade" id="grade" type="text" class="validate")
+			div(class="input-field col l8 s12 m8 center")
+				i(class="material-icons left") lock
+				h6(class="left") Contraseña
+				input(placeholder="Contraseña (obligatoria)" name="password" id="password" type="password" class="validate")
+			div(class="input-field col s12 l12 m12")
+				button(type="submit waves-effect waves-light" class="btn") Enviar
+					i(class="material-icons right") send
