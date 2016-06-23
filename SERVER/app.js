@@ -177,7 +177,7 @@ app.post("/noticias", multer({ dest: './uploads/'}).single('image_notice') ,func
 			function(result) { 
 				noticia.imageUrl = result.url;
 				noticia.save(function(err){
-					res.render("notice/index");
+					res.redirect("/noticias");
 				});
 			}
 		);
