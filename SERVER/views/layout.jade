@@ -18,38 +18,45 @@ html(lang="es")
 		
 		//	NAV
 
-		nav(class="verde-escuela z-depth-4 m-top retraso1")
-			img(src="/img/logo.ico" class="left hide-on-med-and-down" height="100%")
-			a(href="/" class="pacifico brand-logo white-text m-left waves-effect waves-light") Dr Indalecio Gomez
-			ul(class="hide-on-med-and-down right m-right")
-				li
-					a(href="/institucion" class="waves-effect waves-light") La Institucion
-				li
-					a(href="/noticias" class="waves-effect waves-light") Noticias
-				li
-					a(href="/alumnos" class="waves-effect waves-light") Alumnos
-				li
-					a(href="/contacto" class="waves-effect waves-light") Contacto
-			ul(id="slide-out" class="side-nav verde-escuela")
-				h4(class="pacifico center-align") Escuela Dr. Indalecio Gomez
-				li
-					img(src="/img/escuela.png")
-				li
-					a(href="/" class="big waves-effect waves-light white-text center-align") Inicio #[i(class="material-icons left") home]
-				li
-					a(href="/institucion" class="big waves-effect waves-light white-text center-align") La Institucion #[i(class="material-icons left") store]
-				li
-					a(href="/noticias" class="big waves-effect waves-light white-text center-align") Noticias #[i(class="material-icons left") fiber_new]
-				li
-					a(href="/alumnos" class="big waves-effect waves-light white-text center-align") Informacion para alumnos #[i(class="material-icons left") fingerprint]
-				li
-					a(href="/contacto" class="big waves-effect waves-light white-text center-align") Contacto #[i(class="material-icons left") import_contacts]
-				div(class="divider")
-				div(class="verde-escuela")
-					p(class="center-align white-text" style="margin-bottom: 0;") © 2016 Copyright Escuela Dr. Indalecio Gómez
-					p(class="center-align white-text" style="margin-bottom: 0;") Todos los derechos reservados
-			a(href="#" data-activates="slide-out" class="button-collapse")
-				i(class="material-icons") menu
+		div(class="navbar-fixed")
+			nav(class="verde-escuela z-depth-4 m-top retraso1")
+				img(src="/img/logo.ico" class="left hide-on-med-and-down" height="100%")
+				a(href="/" class="pacifico brand-logo white-text m-left waves-effect waves-light") Dr Indalecio Gomez
+				ul(class="hide-on-med-and-down right m-right")
+					li
+						a(href="/institucion" class="waves-effect waves-light") La Institucion
+					li
+						a(href="/noticias" class="waves-effect waves-light") Noticias
+					li
+						a(href="/alumnos" class="waves-effect waves-light") Alumnos
+					li
+						a(href="/contacto" class="waves-effect waves-light") Contacto
+				ul(id="slide-out" class="side-nav verde-escuela")
+					h4(class="pacifico center-align") Escuela Dr. Indalecio Gomez
+					li
+						img(src="/img/escuela.png")
+					li
+						a(href="/" class="big waves-effect waves-light white-text center-align") Inicio #[i(class="material-icons left") home]
+					li
+						a(href="/institucion" class="big waves-effect waves-light white-text center-align") La Institucion #[i(class="material-icons left") store]
+					li
+						a(href="/noticias" class="big waves-effect waves-light white-text center-align") Noticias #[i(class="material-icons left") fiber_new]
+					li
+						a(href="/alumnos" class="big waves-effect waves-light white-text center-align") Informacion para alumnos #[i(class="material-icons left") fingerprint]
+					li
+						a(href="/contacto" class="big waves-effect waves-light white-text center-align") Contacto #[i(class="material-icons left") import_contacts]
+					div(class="divider")
+					div(class="verde-escuela")
+						p(class="center-align white-text" style="margin-bottom: 0;") © 2016 Copyright Escuela Dr. Indalecio Gómez
+						p(class="center-align white-text" style="margin-bottom: 0;") Todos los derechos reservados
+				a(href="#" data-activates="slide-out" class="button-collapse")
+					i(class="material-icons") menu
 
 		// END NAV
 		block body
+		//	FOOTER
+
+		div(class="verde-escuela" id="footer")
+			p(class="center-align white-text" style="margin-bottom: 0;") © 2016 Copyright Escuela Dr. Indalecio Gómez - Todos los derechos reservados
+
+		//END FOOTER

@@ -1,2 +1,19 @@
 extends ../layout.jade
 block body
+	h1(class="pacifico center-align") Panel de Administracion
+	div(class="progress")
+		div(class="indeterminate")
+	div(class="row container center-align")
+		h3(class="pacifico") Seccion de Administracion General
+		form(class="col s12 m4 l4" method="post" action="/admin/notice")
+			div(class="input-field")
+				button(type="submit waves-effect waves-light" class="btn tooltipped white-text teal z-depth-5" data-position="bottom" data-delay="50" data-tooltip="Administracion de Noticias Generales") Noticias Generales
+					i(class="material-icons left") build
+		form(class="col s12 m4 l4" method="post" action="/admin/students")
+			div(class="input-field")
+				button(type="submit waves-effect waves-light" class="btn tooltipped white-text green z-depth-5" data-position="bottom" data-delay="50" data-tooltip="Administracion de Noticias para los Alumnos") Seccion Alumnos
+					i(class="material-icons left") accessibility
+		form(class="col s12 m4 l4" method="post" action="/admin/teachers")
+			div(class="input-field")
+				button(type="submit waves-effect waves-light" class="btn tooltipped white-text blue z-depth-5" data-position="bottom" data-delay="50" data-tooltip="Administracion de Informacion de Maestros") Informacion de Maestros
+					i(class="material-icons left") account_circle

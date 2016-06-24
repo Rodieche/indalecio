@@ -1,0 +1,12 @@
+extends ../layout.jade
+block body
+	h1(class="pacifico center-align") Login de Administradores
+	div(class="container center-align")
+		form(method="post" action="/superadmin")
+			div(class="input-field col l6 s12 m8 center")
+					i(class="material-icons left") lock
+					h6(class="left") Contraseña
+					input(placeholder="Contraseña del administrador" name="password" id="password" type="password" class="validate")
+				div(class="input-field col s12 l12 m12")
+					button(type="submit waves-effect waves-light" class="btn") Enviar
+						i(class="material-icons right") send

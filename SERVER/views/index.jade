@@ -20,13 +20,28 @@ block body
 		div(class="parallax")
 			img(src="img/school_draw.jpg")
 
-	//iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1811.099163866572!2d-65.40270711646951!3d-24.78866147615463!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x941bc3982e96ae49%3A0xa42e88311f53c29e!2sEscuela+Dr.+Indalecio+G%C3%B3mez+N%C2%B0+784!5e0!3m2!1ses-419!2sar!4v1466490090785" width="100%" height="300" frameborder="0" style="border:0")
+	div(class="container m-buttom")
+		h3(class="pacifico center-align") Consultas
+		form(class="col s12 l12 m12" method="post" action="/contact")
+			div(class="row")
+				div(class="input-field col l6 s12 m6 center")
+					i(class="material-icons left") account_circle
+					h6(class="left") Nombre
+					input(placeholder="Juan Lopez" name="name" id="name" type="text" class="validate")
+				div(class="input-field col l6 s12 m6 center")
+					i(class="material-icons left") email
+					h6(class="left") Mail
+					input(placeholder="ejemplo@sudominio.com" name="mail" id="mail" type="email" class="validate")
+				div(class="input-field col l12 s12 m12 center")
+					i(class="material-icons left") subject
+					h6(class="left") Asunto
+					input(placeholder="Motivo de su consulta" name="subject" id="subject" type="text")
+			div(class="input-field col s12 l12 m12")
+				i(class="material-icons left") description
+				h6(class="left") Escriba su texto
+				textarea(placeholder="Cuerpo del mensaje" name="mail_body" id="mail_body" type="textarea" class="validate m-top" style="height:150px;")
+			div(class="input-field col s12 l12 m12")
+				button(type="submit waves-effect waves-light" class="btn blue") Enviar
+					i(class="material-icons right") send
 
 	//	END CONTENT
-
-	//	FOOTER
-
-	div(class="verde-escuela")
-		p(class="center-align white-text" style="margin-bottom: 0;") © 2016 Copyright Escuela Dr. Indalecio Gómez - Todos los derechos reservados
-
-	//END FOOTER

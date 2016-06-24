@@ -1,0 +1,20 @@
+extends ../layout.jade
+block body
+	h1(class="pacifico center-align") INFORMACION DE MAESTROS
+	table
+		thead
+			tr
+				th Nombre
+				th Cargo
+				th Descripcion
+				th Imagen
+				th Opciones
+		tbody
+			each maestro in teachers
+				tr
+					td= maestro.name
+					td= maestro.grade
+					td= maestro.information
+					td
+						a(href="#{ maestro.pictureurl }" class="btn green" target="_blank") Foto
+					td Ver - Editar - Eliminar

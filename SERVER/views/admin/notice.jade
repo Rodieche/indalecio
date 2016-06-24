@@ -1,0 +1,18 @@
+extends ../layout.jade
+block body
+	h1(class="pacifico center-align") Noticias Generales
+	table
+		thead
+			tr
+				th Titulo
+				th Cuerpo de la noticia
+				th Imagen
+				th Opciones
+		tbody
+			each noticia in noticias
+				tr
+					td= noticia.title
+					td= noticia.description
+					td
+						a(href="#{ noticia.imageUrl }" class="btn green" target="_blank") Imagen
+					td Ver - Editar - Eliminar

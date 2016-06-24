@@ -1,0 +1,19 @@
+extends ../layout.jade
+block body
+	h1(class="pacifico center-align") Noticias para los Alumnos
+	frame(name="imagenes")
+	table
+		thead
+			tr
+				th Titulo
+				th Cuerpo de la noticia
+				th Imagen
+				th Opciones
+		tbody
+			each alumno in alumnos
+				tr
+					td= alumno.header
+					td= alumno.descriptionstu
+					td
+						a(href="#{ alumno.image }" class="btn green" target="_blank") Ver Imagen
+					td Ver - Editar - Eliminar

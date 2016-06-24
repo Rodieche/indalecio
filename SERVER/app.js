@@ -7,12 +7,10 @@ var bodyParse = require('body-parser');
 var multer = require('multer');
 //app.use(multer({dest: "uploads/"}));
 //var upload = multer({ dest: './uploads' });
-
 var cloudinary = require('cloudinary');
-
 var mypasswd = 1234;
-
 var mysuperpasswd = "#4211868aB";
+var nodemailer = require('nodemailer');
 
 //	CONFIG MONGOOSE
 
@@ -37,9 +35,10 @@ cloudinary.config({
 
 var noticeSchema = {
 
-	title:String,
+	title:{type:String, unique: true},
 	description:String,
 	imageUrl:String,
+	createdAt: {type: Date, default: Date.now},
 	visits_count:Number, 
 
 };
@@ -48,7 +47,7 @@ var noticeSchema = {
 
 var teacherSchema = {
 
-	name:String,
+	name:{type:String, unique: true},
 	information:String,
 	grade:String,
 	pictureurl:String,
@@ -60,9 +59,10 @@ var teacherSchema = {
 
 var noticeStudent = {
 
-	header:String,
+	header:{type:String, unique: true},
 	descriptionstu:String,
 	image:String,
+	createdAt: {type: Date, default: Date.now},
 	visits:Number,
 
 };
@@ -121,7 +121,10 @@ app.get("/noticias/new",function(req,res){
 //	institution main page
 
 app.get("/institucion",function(req,res){
-	res.render("institution/index");
+	Teacher.find(function(error,documento){
+		if(error){ console.log(error); }
+		res.render("institution/index",{ teachers: documento });
+	});
 });
 
 //	institution (new teacher) page 
@@ -133,7 +136,10 @@ app.get("/institucion/new",function(req,res){
 //	student main page
 
 app.get("/alumnos",function(req,res){
-	res.render("student/index");
+	Student.find(function(error,documento){
+		if(error){ console.log(error); }
+		res.render("student/index",{ noticestudent: documento });
+	});
 });
 
 //	student (new information) page 
@@ -145,7 +151,7 @@ app.get("/alumnos/new",function(req,res){
 //	admin dashboard page
 
 app.get("/superadmin",function(req,res){
-	res.render("admin/index");
+	res.render("admin/form");
 });
 
 //	nopasswd page
@@ -153,7 +159,6 @@ app.get("/superadmin",function(req,res){
 app.get("/errorpasswd",function(req,res){
 	res.render("error/nopasswd");
 });
-
 
 //**************************************************************************
 //						ALL POST METHOD OF THE SERVER
@@ -204,7 +209,7 @@ app.post("/institution", multer({ dest: './uploads/'}).single('pictureurl') ,fun
 			function(result) { 
 				maestra.pictureurl = result.url;
 				maestra.save(function(err){
-					res.render("institution/index");
+					res.redirect("/institucion");
 				});
 			}
 		);
@@ -231,7 +236,7 @@ app.post("/alumnos", multer({ dest: './uploads/'}).single('image') ,function(req
 			function(result) { 
 				alumnonoticia.image = result.url;
 				alumnonoticia.save(function(err){
-					res.render("student/index");
+					res.redirect("/alumnos");
 				});
 			}
 		);
@@ -240,6 +245,65 @@ app.post("/alumnos", multer({ dest: './uploads/'}).single('image') ,function(req
 	};
 });
 
+app.post("/superadmin",function(req,res){
+	if(req.body.password == mypasswd){
+//		Notice.find(function(error,docnot){
+//			if(error){ console.log(error); }
+//			res.render("admin/index", { noticias: docnot });
+//		});
+		res.render("admin/index");
+	}else{
+		res.redirect("/");
+	}
+});
+
+app.post("/admin/notice",function(req,res){
+	Notice.find(function(error,docnot){
+		if(error){ console.log(error); }
+		res.render("admin/notice", { noticias: docnot });
+	});
+});
+
+app.post("/admin/students",function(req,res){
+	Student.find(function(error,docnstu){
+		if(error){ console.log(error); }
+		res.render("admin/students", { alumnos: docnstu });
+	});
+});
+
+app.post("/admin/teachers",function(req,res){
+	Teacher.find(function(error,doctea){
+		if(error){ console.log(error); }
+		res.render("admin/teachers", { teachers: doctea });
+	});
+});
+
+app.post("/admin/passwd",function(req,res){
+	res.render("admin/passwd");
+});
+
+
+app.post("/contact",function(req,res){
+    var correct = 0;
+    var name = req.body.name;
+    var from = req.body.mail;
+    var subject = req.body.subject;
+    var message = req.body.mail_body;
+    var to = 'escuelaindaleciogomez@gmail.com';
+    var transporter = nodemailer.createTransport('smtps://escuelaindaleciogomez%40gmail.com:indalecio_school_gomez@smtp.gmail.com');
+    var mailOptions = {
+        from: from,
+        to: to, 
+        subject: subject,
+        text: "Mensaje de : " + name + "\n\n" + message, 
+    }
+    transporter.sendMail(mailOptions, function(error, info){
+		if(error){
+			return console.log(error);
+		}
+		res.redirect("/contacto");
+	});
+});
 //===========================================================================
 
 //	PORT TO LISTEN
