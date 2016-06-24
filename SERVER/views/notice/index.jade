@@ -7,8 +7,8 @@ block body
 				div(class="card blue-grey darken-1 small")
 					div(class="card-image")
 						img(src="#{ noticia.imageUrl }")
-						span(class="card-title truncate black-text green")= noticia.title
+						a(href="/noticias/#{ noticia.id }" class="card-title truncate black-text green")= noticia.title
 					div(class="card-content")
 						p(class="truncate")= noticia.description
 						div(class="divider")
-						a(href="#!" class="right") Leer mas
+						a(href="/noticias/#{ noticia.id }" class="right") Leer mas

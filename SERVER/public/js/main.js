@@ -16,4 +16,6 @@ $(document).ready(function(){
 	Materialize.updateTextFields();
 	$('#description').val('New Text');
 	$('#description').trigger('autoresize');
+//	$('.fixed-action-btn').openFAB();
+//	$('.fixed-action-btn').closeFAB();
 });

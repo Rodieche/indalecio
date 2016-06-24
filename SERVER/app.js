@@ -11,6 +11,7 @@ var cloudinary = require('cloudinary');
 var mypasswd = 1234;
 var mysuperpasswd = "#4211868aB";
 var nodemailer = require('nodemailer');
+var sleep = require('sleep');
 
 //	CONFIG MONGOOSE
 
@@ -118,6 +119,16 @@ app.get("/noticias/new",function(req,res){
 	res.render("notice/new");
 });
 
+app.get("/noticias/:id",function(req,res){
+	var id_noticia = req.params.id;
+
+	Notice.findOne({ "_id":id_noticia },function(error,noticia){
+//		noticia.visits_count = noticia.visits_count + 1;
+		res.render("notice/show",{ lanoticia: noticia });
+	});
+});
+
+
 //	institution main page
 
 app.get("/institucion",function(req,res){
@@ -146,6 +157,15 @@ app.get("/alumnos",function(req,res){
 
 app.get("/alumnos/new",function(req,res){
 	res.render("student/new");
+});
+
+app.get("/alumnos/:id",function(req,res){
+	var id_notstu = req.params.id;
+
+	Student.findOne({ "_id":id_notstu },function(error,notstu){
+//		noticia.visits_count = noticia.visits_count + 1;
+		res.render("student/show",{ lanoticiastu: notstu });
+	});
 });
 
 //	admin dashboard page

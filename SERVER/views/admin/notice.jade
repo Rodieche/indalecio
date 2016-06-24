@@ -15,4 +15,9 @@ block body
 					td= noticia.description
 					td
 						a(href="#{ noticia.imageUrl }" class="btn green" target="_blank") Imagen
-					td Ver - Editar - Eliminar
+					td 
+						a(href="/noticias/#{ noticia.id }") Ver
+						= " - "
+						a(href="#!") Editar
+						= " - "
+						a(href="#!") Eliminar

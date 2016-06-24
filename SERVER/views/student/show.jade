@@ -1,0 +1,9 @@
+extends ../layout.jade
+block body
+	h1(class="pacifico center-align")= lanoticiastu.header
+	//h6(class="roboto center-align") Visitas : #{lanoticiastu.visits}
+	div(class="divider")
+	div(class="container center-align")
+		img(src="#{ lanoticiastu.image }")
+	div(class="container")
+		p= lanoticiastu.descriptionstu

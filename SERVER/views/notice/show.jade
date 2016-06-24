@@ -1,0 +1,9 @@
+extends ../layout.jade
+block body
+	h1(class="pacifico center-align")= lanoticia.title
+	//h6(class="roboto center-align") Visitas : #{lanoticia.visits_count}
+	div(class="divider")
+	div(class="container center-align")
+		img(src="#{ lanoticia.imageUrl }")
+	div(class="container")
+		p= lanoticia.description
