@@ -12,6 +12,8 @@ var mypasswd = 1234;
 var mysuperpasswd = "#4211868aB";
 var nodemailer = require('nodemailer');
 var sleep = require('sleep');
+var methodOverride = require('method-override');
+//var http = require('http');
 
 //	CONFIG MONGOOSE
 
@@ -29,6 +31,10 @@ cloudinary.config({
 	api_key: "816154774651498",
 	api_secret: "308-RiCpA1bfwu4pmgHyNXiDsXM",
 });
+
+//	METHOD OVERRIDE
+
+app.use(methodOverride("_method"));
 
 //===============	SCHEMA OF MONGO 	==================================
 
@@ -92,19 +98,25 @@ app.use(express.static("public"));
 //						ALL GET METHOD OF THE SERVER
 //**************************************************************************
 
-//	root page
+//************************************************
+//			ROOT PAGE
+//************************************************
 
 app.get("/",function(req,res){
 	res.render("index");
 });
 
-//	contact page
+//************************************************
+//			CONTACT PAGE
+//************************************************
 
 app.get("/contacto",function(req,res){
 	res.render("contact");
 });
 
-//	notice main page
+//************************************************
+//			NOTICE PAGES
+//************************************************
 
 app.get("/noticias",function(req,res){
 	Notice.find(function(error,documento){
@@ -123,7 +135,9 @@ app.get("/noticias/:id",function(req,res){
 });
 
 
-//	institution main page
+//************************************************
+//			INSTITUTION PAGES
+//************************************************
 
 app.get("/institucion",function(req,res){
 	Teacher.find(function(error,documento){
@@ -132,7 +146,16 @@ app.get("/institucion",function(req,res){
 	});
 });
 
-//	student main page
+//app.get("/institucion/:id",function(req,res){
+//	var id_tea = req.params.id;
+//	Teacher.findOne({ "_id":id_tea },function(error,nottea){
+//		res.render("institution/show",{ teachers: nottea });
+//	});
+//});
+
+//************************************************
+//			STUDENT NOTICE MAIN PAGE
+//************************************************
 
 app.get("/alumnos",function(req,res){
 	Student.find(function(error,documento){
@@ -143,30 +166,26 @@ app.get("/alumnos",function(req,res){
 
 app.get("/alumnos/:id",function(req,res){
 	var id_notstu = req.params.id;
-
 	Student.findOne({ "_id":id_notstu },function(error,notstu){
-//		noticia.visits_count = noticia.visits_count + 1;
 		res.render("student/show",{ lanoticiastu: notstu });
 	});
 });
 
-//	admin dashboard page
+//************************************************
+//			MAIN ADMIN PAGE WITH FORM
+//************************************************
 
 app.get("/superadmin",function(req,res){
 	res.render("admin/form");
-});
-
-//	nopasswd page
-
-app.get("/errorpasswd",function(req,res){
-	res.render("error/nopasswd");
 });
 
 //**************************************************************************
 //						ALL POST METHOD OF THE SERVER
 //**************************************************************************
 
-//	POST NOTICIAS/NEW
+//************************************************
+//			PAGES AFTER NEW NOTCE
+//************************************************
 
 app.post("/noticias", multer({ dest: './uploads/'}).single('image_notice') ,function(req,res,next){
 	if(req.body.password == mypasswd){
@@ -193,7 +212,9 @@ app.post("/noticias", multer({ dest: './uploads/'}).single('image_notice') ,func
 	};
 });
 
-//	POST TEACHERS NEW
+//************************************************
+//			PAGES AFTER NEW TEACHER INFORMATION
+//************************************************
 
 app.post("/institution", multer({ dest: './uploads/'}).single('pictureurl') ,function(req,res,next){
 	if(req.body.password == mypasswd){
@@ -220,7 +241,9 @@ app.post("/institution", multer({ dest: './uploads/'}).single('pictureurl') ,fun
 	};
 });
 
-//	POST STUDENT NOTICE NEW
+//************************************************
+//			PAGE AFTER NEW NOTICE FOR STUDENTS
+//************************************************
 
 app.post("/alumnos", multer({ dest: './uploads/'}).single('image') ,function(req,res,next){
 	if(req.body.password == mypasswd){
@@ -247,12 +270,12 @@ app.post("/alumnos", multer({ dest: './uploads/'}).single('image') ,function(req
 	};
 });
 
+//************************************************
+//			ADMIN PAGES
+//************************************************
+
 app.post("/superadmin",function(req,res){
 	if(req.body.password == mypasswd){
-//		Notice.find(function(error,docnot){
-//			if(error){ console.log(error); }
-//			res.render("admin/index", { noticias: docnot });
-//		});
 		res.render("admin/index");
 	}else{
 		res.redirect("/");
@@ -284,6 +307,9 @@ app.post("/admin/passwd",function(req,res){
 	res.render("admin/passwd");
 });
 
+//************************************************
+//			CONTACT MAIL SEND
+//************************************************
 
 app.post("/contact",function(req,res){
     var correct = 0;
@@ -307,6 +333,10 @@ app.post("/contact",function(req,res){
 	});
 });
 
+//************************************************
+//			NEW PAGES
+//************************************************
+
 app.post("/alumnos/new",function(req,res){
 	res.render("student/new");
 });
@@ -319,6 +349,54 @@ app.post("/noticias/new",function(req,res){
 	res.render("notice/new");
 });
 
+
+//************************************************
+//			EDIT PAGE
+//************************************************
+
+app.post("/noticias/edit/:id",function(req,res){
+	var id_not = req.params.id;
+	Notice.findOne({ "_id":id_not },function(error,not){
+		res.render("notice/edit",{ noticia: not });
+	});
+});
+
+app.post("/institucion/edit/:id",function(req,res){
+	var id_tea = req.params.id;
+	Teacher.findOne({ "_id":id_tea },function(error,tea){
+		res.render("institution/edit",{ maestro: tea });
+	});
+});
+
+app.put("/institucion/:id", function(req, res){
+	Teacher.findById(req.params.id,function(err,maestro){
+		if (err)
+			res.send(err);
+		maestro.name = req.body.name;
+		maestro.information = req.body.information;
+		maestro.grade = req.body.grade;
+		maestro.save(function(err){
+			if (err)
+				res.send(err);
+		res.redirect("/institucion");
+		});
+	});
+});
+
+app.delete("/institucion/:id",function(req,res){
+	var id = req.params.id;
+	Teacher.remove({"_id": id},function(err){
+		if(err){ console.log(err); }
+		res.redirect("/institucion")
+	});
+});
+
+app.post("/alumnos/edit/:id",function(req,res){
+	var id_notstu = req.params.id;
+	Student.findOne({ "_id":id_notstu },function(error,notstu){
+		res.render("student/edit",{ noticiastu: notstu });
+	});
+});
 //===========================================================================
 
 //	PORT TO LISTEN

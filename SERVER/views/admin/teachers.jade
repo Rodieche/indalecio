@@ -19,13 +19,13 @@ block body
 					td
 						a(href="#{ maestro.pictureurl }" class="btn green animated fadeInDown retraso1" target="_blank") Foto
 					td 
-						form(class="col s3 m3 l3" method="get" action="/maestros/#{ maestro.id }" target="_blank")
+						form(class="col s3 m3 l3" method="get" action="/institucion/#{ maestro.id }" target="_blank")
 							div(class="input-field")
 								button(type="submit" class="btn waves-effect waves-light black-text yellow z-depth-5 animated bounceInRight retraso2") #[i(class="material-icons") remove_red_eye]
-						form(class="col s3 m3 l3" method="post" action="/maestros/#{ maestro.id }")
+						form(class="col s3 m3 l3" method="post" action="/institucion/edit/#{ maestro.id }")
 							div(class="input-field")
 								button(type="submit" class="btn waves-effect waves-light black-text blue z-depth-5 animated bounceInRight retraso3") #[i(class="material-icons") mode_edit]
-						form(class="col s3 m3 l3" method="post" action="/maestros/#{ maestro.id }")
+						form(class="col s3 m3 l3" method="post" action="/institucion/#{ maestro.id }?_method=delete")
 							div(class="input-field")
 								button(type="submit" class="btn waves-effect waves-light black-text red z-depth-5 animated bounceInRight retraso4") #[i(class="material-icons") delete_forever]
 	form(method="post" action="/institucion/new" target="_blank")
