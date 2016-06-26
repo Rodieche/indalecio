@@ -4,20 +4,28 @@ block body
 	table
 		thead
 			tr
-				th Titulo
-				th Cuerpo de la noticia
-				th Imagen
-				th Opciones
+				th(class="center-align") Titulo
+				th(class="center-align") Cuerpo de la noticia
+				th(class="center-align") Imagen
+				th(class="center-align") Opciones
 		tbody
 			each noticia in noticias
 				tr
-					td= noticia.title
+					td
+						p(class="pacifico") #[b #{noticia.title}]
 					td= noticia.description
 					td
-						a(href="#{ noticia.imageUrl }" class="btn green" target="_blank") Imagen
+						a(href="#{ noticia.imageUrl }" class="btn green animated fadeInDown retraso1" target="_blank") Imagen
 					td 
-						a(href="/noticias/#{ noticia.id }") Ver
-						= " - "
-						a(href="#!") Editar
-						= " - "
-						a(href="#!") Eliminar
+						form(class="col s3 m3 l3" method="get" action="/noticias/#{ noticia.id }" target="_blank")
+							div(class="input-field")
+								button(type="submit" class="btn waves-effect waves-light black-text yellow z-depth-5 animated bounceInRight retraso2") #[i(class="material-icons") remove_red_eye]
+						form(class="col s3 m3 l3" method="post" action="/noticias/#{ noticia.id }")
+							div(class="input-field")
+								button(type="submit" class="btn waves-effect waves-light black-text blue z-depth-5 animated bounceInRight retraso3") #[i(class="material-icons") mode_edit]
+						form(class="col s3 m3 l3" method="post" action="/noticias/#{ noticia.id }")
+							div(class="input-field")
+								button(type="submit" class="btn waves-effect waves-light black-text red z-depth-5 animated bounceInRight retraso4") #[i(class="material-icons") delete_forever]
+	form(method="post" action="/noticias/new" target="_blank")
+		div(class="fixed-action-btn" style="bottom: 10px; right: 20px;")
+			button(type="submit" class="btn-floating btn-large waves-effect waves-light black-text orange z-depth-5") #[i(class="large material-icons") add]

@@ -113,12 +113,6 @@ app.get("/noticias",function(req,res){
 	});
 });
 
-//	notice (new notice) page 
-
-app.get("/noticias/new",function(req,res){
-	res.render("notice/new");
-});
-
 app.get("/noticias/:id",function(req,res){
 	var id_noticia = req.params.id;
 
@@ -138,12 +132,6 @@ app.get("/institucion",function(req,res){
 	});
 });
 
-//	institution (new teacher) page 
-
-app.get("/institucion/new",function(req,res){
-	res.render("institution/new");
-});
-
 //	student main page
 
 app.get("/alumnos",function(req,res){
@@ -151,12 +139,6 @@ app.get("/alumnos",function(req,res){
 		if(error){ console.log(error); }
 		res.render("student/index",{ noticestudent: documento });
 	});
-});
-
-//	student (new information) page 
-
-app.get("/alumnos/new",function(req,res){
-	res.render("student/new");
 });
 
 app.get("/alumnos/:id",function(req,res){
@@ -324,6 +306,19 @@ app.post("/contact",function(req,res){
 		res.redirect("/contacto");
 	});
 });
+
+app.post("/alumnos/new",function(req,res){
+	res.render("student/new");
+});
+
+app.post("/institucion/new",function(req,res){
+	res.render("institution/new");
+});
+
+app.post("/noticias/new",function(req,res){
+	res.render("notice/new");
+});
+
 //===========================================================================
 
 //	PORT TO LISTEN

@@ -88,3 +88,8 @@ img{
 	-webkit-border-radius: 150px;
 	-moz-border-radius: 150px;
 }
+
+.image-container{
+  max-height: 200px;
+  overflow:hidden;
+}
